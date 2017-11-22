@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Test
+	</title>
+	<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body onload="">
+	Hello
+<table id="test"></table>
+
+<script type="text/javascript">
+	const tasklist = require('tasklist');
+ 	const nwwc = require("windows-window-controller");
+global.test = "hello marry";
+console.log(process.mainModule);
+
+
+tasklist({verbose: true}).then(tasks => {
+    console.log(tasks);
+
+    var table = document.getElementById("test");
+
+
+    for (var i = 0; i < tasks.length; i++) {
+    	if (tasks[i].windowTitle !== "N/A"){
+    	var row = table.insertRow();
+    	var cell1 = row.insertCell(0);
+    	var cell2 = row.insertCell(1);
+    	var cell3 = row.insertCell(2);
+    	var cell4 = row.insertCell(3);
+    	cell1.innerHTML = tasks[i].imageName;
+    	cell2.innerHTML = tasks[i].pid;
+    	cell2.setAttribute("id", tasks[i].pid);
+    	cell3.innerHTML = tasks[i].memUsage;
+    	cell4.innerHTML = tasks[i].windowTitle;
+    	cell4.setAttribute("id", tasks[i].windowTitle);
+
+    	}
+	}
+
+
+
+})
+
+
+$(document).ready(function() {
+	$("#test").on("click", "td", function() {
+		process.mainModule.exports.test(event.target.id)
+		
+	});
+});
+</script>
+</body>
+</html>

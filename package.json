@@ -1,0 +1,32 @@
+{
+  "node-main": "node_serv.js",
+  "main": "index.html",
+  "name": "taskbar",
+  "description": "demo app of node-webkit",
+  "version": "0.1.0",
+  "keywords": [
+    "demo",
+    "node-webkit"
+  ],
+  "window": {
+    "title": "node-webkit demo",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 600
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "tasklist": "^3.1.0",
+    "windows-window-controller": "^3.1.0"
+  }
+}
